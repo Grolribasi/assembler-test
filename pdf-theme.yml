@@ -1,0 +1,76 @@
+extends: default
+page:
+  numbering:
+    start-at: title
+  front-cover-image: ~  
+  margin-top: 24mm
+  margin-botton: 20mm
+  margin-inner: 15mm
+  margin-outer: 15mm
+#  margin: [0.75in, 1in, 0.75in, 1in]
+base:
+#  font-color: #333333
+#  font-family: Times-Roman
+  font-size: 12
+#  line-height-length: 17
+  line-height: 16
+  font-color: $brand-color-gray
+  font-family: Verdana
+brand:
+  color-violent: #271f47
+  color-green: #bbd02d
+  color-red: #ca3625
+  color-orange: #f18a00
+  color-blue: #00adbb
+  color-gray: #333333
+  color-black: #141414
+admonition:
+  3pt
+footer:
+  content-mrgin-top: 0
+  font-size: 12pt
+  font-color: $brand-color-gray
+#heading:
+#  font-color: #262626
+#  font-size: 17
+#  font-style: bold
+#  line-height: 1.2
+#  margin-bottom: 10
+#link:
+#  font-color: #002FA7
+#list:
+#  indent: $base-font-size * 1.5
+header:
+  content: chapter-title
+footer:
+#  height: $base-line-height-length * 2.5
+#  line-height: 1
+  recto: &shared_footer
+    right:
+      content: '{page-number}'
+  verso: *shared_footer
+  margin-bottom: 10mm
+  margin-right: 15mm
+font:
+  catalog:
+    merge: false 
+    Verdana:
+      normal: verdana-normal.ttf
+      italic: verdana-italic.ttf
+      bold: verdana-bold.ttf
+      bold_italic: verdana-bold_italic.ttf
+  fallbacks:
+  - M+ 1p Fallback    
+image:
+  caption:
+    end: bottom
+title-page:
+  background-image: cover.png
+  logo:
+    image: cover-logo.png
+    align: center
+  font-color: $brand-color-gray
+  title:
+    font-color: $brand-color-violent
+running-content:
+  start-at: after-toc
