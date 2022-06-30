@@ -67,7 +67,7 @@ image:
 title-page:
   background-image: cover.png
   logo:
-    image: cover-logo.png
+    image: coverLogo.png
     align: center
   font-color: $brand-color-gray
   title:
