@@ -1,16 +1,10 @@
 root_level: 1
-plantumlconfig: plantuml.cfg
-icons: font
-#section_merge_strategy: fuse
-sectnums: ''
-title-page-background-image: cover.png
-title-logo-image: coverLogo.png
-toclevels: 5
-outlinelevels: 5:1
+component_versions: '*'
 asciidoc:
   attributes:
     source-highlighter: rouge
     pdf-fontsdir: ./verdana
     pdf-theme: ./pdf-theme.yml
 build:
+  command: bundle exec asciidoctor-pdf --trace
   keep_aggregate_source: true
