@@ -1,4 +1,4 @@
-extends: default
+extends: default-with-font-fallbacks
 page:
   numbering:
     start-at: title
@@ -8,14 +8,6 @@ page:
   margin-inner: 15mm
   margin-outer: 15mm
 #  margin: [0.75in, 1in, 0.75in, 1in]
-base:
-#  font-color: #333333
-#  font-family: Times-Roman
-  font-size: 12
-#  line-height-length: 17
-  line-height: 16
-  font-color: $brand-color-gray
-  font-family: Verdana
 brand:
   color-violent: #271f47
   color-green: #bbd02d
@@ -24,6 +16,14 @@ brand:
   color-blue: #00adbb
   color-gray: #333333
   color-black: #141414
+base:
+#  font-color: #333333
+#  font-family: Times-Roman
+  font-size: 12
+#  line-height-length: 17
+  line-height: 16
+  font-color: $brand-color-gray
+  font-family: Verdana
 admonition:
   3pt
 footer:
@@ -59,16 +59,16 @@ font:
       italic: verdana-italic.ttf
       bold: verdana-bold.ttf
       bold_italic: verdana-bold_italic.ttf
-  fallbacks:
-  - M+ 1p Fallback    
+#  fallbacks:
+#  - M+ 1p Fallback    
 image:
   caption:
     end: bottom
 title-page:
   background-image: cover.png
-  logo:
-    image: coverLogo.png
-    align: center
+#  logo:
+#    image: coverLogo.png
+#    align: center
   font-color: $brand-color-gray
   title:
     font-color: $brand-color-violent
