@@ -13,19 +13,19 @@ content:
   branches: 'dev'
   edit_url: ~
   sources:
-    - url: https://github.com/Docsvision/WebC-Antora.git
-    - url: https://github.com/Docsvision/Worker-Antora.git
-    - url: https://github.com/Docsvision/Platform-Antora.git
-    - url: https://github.com/Docsvision/WebAC-Antora.git
-    - url: https://github.com/Docsvision/Install-Guide-Antora.git
-    - url: https://github.com/Docsvision/Designers-And-Directories-Antora.git
+#    - url: https://github.com/Docsvision/WebC-Antora.git
+#    - url: https://github.com/Docsvision/Worker-Antora.git
+#    - url: https://github.com/Docsvision/Platform-Antora.git
+#    - url: https://github.com/Docsvision/WebAC-Antora.git
+#    - url: https://github.com/Docsvision/Install-Guide-Antora.git
+#    - url: https://github.com/Docsvision/Designers-And-Directories-Antora.git
     - url: https://github.com/Docsvision/System-Antora.git
-    - url: https://github.com/Docsvision/Approval-Designer-Antora.git
-    - url: https://github.com/Docsvision/Base-Objects-Antora.git
-    - url: https://github.com/Docsvision/Platform-Upgrade-Antora.git
-    - url: https://github.com/Docsvision/Engineer-Antora.git
-    - url: https://github.com/Docsvision/Programmer-Antora.git
-    - url: https://github.com/Docsvision/Windows-Client-Antora.git
+#    - url: https://github.com/Docsvision/Approval-Designer-Antora.git
+#    - url: https://github.com/Docsvision/Base-Objects-Antora.git
+#    - url: https://github.com/Docsvision/Platform-Upgrade-Antora.git
+#    - url: https://github.com/Docsvision/Engineer-Antora.git
+#    - url: https://github.com/Docsvision/Programmer-Antora.git
+#    - url: https://github.com/Docsvision/Windows-Client-Antora.git
 git:
   credentials:
     path: ~/.git-credentials
@@ -99,3 +99,6 @@ output:
   dir: wwwroot
 runtime:
   fetch: true
+antora:
+  extensions:
+  - '@antora/pdf-extension'
