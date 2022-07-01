@@ -19,9 +19,9 @@ brand:
 base:
 #  font-color: #333333
 #  font-family: Times-Roman
-  font-size: 12
+  font-size: 12pt
 #  line-height-length: 17
-  line-height: 16
+  line-height: 1,5
   font-color: $brand-color-gray
   font-family: Verdana
 admonition:
@@ -53,14 +53,14 @@ footer:
   margin-right: 15mm
 font:
   catalog:
-    merge: false 
+    merge: true
     Verdana:
       normal: verdana-normal.ttf
       italic: verdana-italic.ttf
       bold: verdana-bold.ttf
       bold_italic: verdana-bold_italic.ttf
-#  fallbacks:
-#  - M+ 1p Fallback    
+  fallbacks:
+  - M+ 1p Fallback    
 image:
   caption:
     end: bottom
