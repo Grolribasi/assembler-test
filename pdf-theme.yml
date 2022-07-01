@@ -66,10 +66,10 @@ image:
     end: bottom
 title-page:
   background-image: cover.png
-#  logo:
-#    image: coverLogo.png
-#    align: center
-  font-color: $brand-color-gray
+  logo:
+    image: coverLogo.png
+    align: center
+  font-color: #FFFFFF
   title:
     font-color: $brand-color-violent
 running-content:
