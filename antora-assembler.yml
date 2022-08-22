@@ -1,4 +1,4 @@
-root_level: 1
+root_level: 0
 component_versions: '*'
 asciidoc:
   attributes:
@@ -6,5 +6,5 @@ asciidoc:
     pdf-fontsdir: ./verdana
     pdf-theme: ./pdf-theme.yml
 build:
-  command: bundle exec asciidoctor-pdf --trace
-  keep_aggregate_source: true
+  command: bundle exec asciidoctor-pdf -r asciidoctor-kroki --trace
+#  keep_aggregate_source: true
