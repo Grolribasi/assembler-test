@@ -1,4 +1,5 @@
 root_level: 0
+section_merge_strategy: fuse
 component_versions: '*'
 asciidoc:
   attributes:

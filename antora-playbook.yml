@@ -1,7 +1,6 @@
 site:
   title: Документация Docsvision
   url: https://help.docsvision.com/
-  start_page: ROOT:ROOT:general-description.adoc
   robots: allow
 urls:
 #  latest_version_segment: latest
@@ -13,7 +12,7 @@ content:
   branches: 'dev'
   edit_url: ~
   sources:
-#    - url: https://github.com/Docsvision/WebC-Antora.git
+    - url: https://github.com/Docsvision/WebC-Antora.git
     - url: https://github.com/Docsvision/Worker-Antora.git
 #    - url: https://github.com/Docsvision/Platform-Antora.git
 #    - url: https://github.com/Docsvision/WebAC-Antora.git
@@ -23,7 +22,7 @@ content:
 #    - url: https://github.com/Docsvision/Approval-Designer-Antora.git
 #    - url: https://github.com/Docsvision/Base-Objects-Antora.git
 #    - url: https://github.com/Docsvision/Platform-Upgrade-Antora.git
-#    - url: https://github.com/Docsvision/Engineer-Antora.git
+    - url: https://github.com/Docsvision/Engineer-Antora.git
 #    - url: https://github.com/Docsvision/Programmer-Antora.git
 #    - url: https://github.com/Docsvision/Windows-Client-Antora.git
 git:
