@@ -86,15 +86,18 @@
       return componentsAccum
     }, {})
     var componentPool = Object.assign({}, components)
-    var parent
     data.subcomponents.forEach(function (subcomponent) {
-      var targetComponent = components[(parent = subcomponent.parent)]
+      var targetComponent = components[subcomponent.parent]
       if (!(targetComponent || {}).unversioned) {
-        console.warn("parent component '" + parent + "' " + (targetComponent ? 'cannot be versioned' : 'not found'))
+        // console.warn("parent component '" + parent + "' " + (targetComponent ? 'cannot be versioned' : 'not found'))
         return
       }
       var targetItems = targetComponent.nav.items
-      Object.values(selectComponents(subcomponent.components, componentPool)).forEach(function (component) {
+      Object.values(selectComponents(subcomponent.components, componentPool)).sort(function (a, b) {
+        if (!subcomponent.sortAll) return 0
+        if (!a.title) return 1
+        if (a.title?.toLowerCase() < b.title?.toLowerCase()) return -1
+      }).forEach(function (component) {
         var iconId = 'icon-nav-component-' + component.name
         component.iconId = document.getElementById(iconId) ? iconId : targetComponent.iconId
         targetItems.push(component)
@@ -111,11 +114,13 @@
       if (!groupComponents.length) {
         groupsAccum.pop()
       } else if (groupComponents.length === 1 && (component = groupComponents[0]).unversioned) {
+        var items = component.nav.items
+        if ((items[0] || {}).url === data.homeUrl) component.nav.items = items.slice(1)
         component.nav.items.forEach(function (it) {
           var iconId = it.url
-            ? 'icon-nav-page' + it.url.replace(/(?:\.html|\/)$/, '').replace(/\//g, '-')
-            : 'icon-nav-page-' + component.name + '-' + it.content.toLowerCase().replace(/ +/g, '-')
-          if (document.getElementById(iconId)) it.iconId = iconId
+            ? 'icon-nav-page' + it.url.replace(/(?:\.html|\/)$/, '').replace(/[/#]/g, '-')
+            : 'icon-nav-page-' + component.name + '-' + it.content?.toLowerCase().replace(/ +/g, '-')
+          it.iconId = document.getElementById(iconId) ? iconId : 'icon-nav-component'
         })
       }
       return groupsAccum
@@ -130,8 +135,8 @@
     if (found) return components
     return components.concat({
       name: 'home',
-      title: 'Home',
-      versions: [{ version: '', sets: [{ content: 'Home', url: homeUrl }] }],
+      title: 'На главную',
+      versions: [{ version: '', sets: [{ content: 'На главную', url: homeUrl }] }],
     })
   }
 
@@ -152,20 +157,13 @@
         var component = accum[pattern] // reinsert previously selected entry
         delete accum[pattern]
         accum[pattern] = component
-      } else if (pattern.charAt() === '!' && (pattern = pattern.substr(1)) in accum) {
-        delete accum[pattern]
       }
       return accum
     }, {})
   }
 
   function createNavTitleForGroup (groupData) {
-    var navTitle = createElement('h3.nav-title', groupData.title)
-    if (groupData.iconId) {
-      navTitle.classList.add('has-icon')
-      navTitle.insertBefore(createSvgElement('.icon.nav-group-icon', '#' + groupData.iconId), navTitle.firstChild)
-    }
-    return navTitle
+    return createElement('h3.nav-title', groupData.title)
   }
 
   function createNavListForGroup (groupData, page) {
@@ -240,11 +238,11 @@
     var navVersionMenu = createElement('ul.nav-version-menu')
     versions.reduce(function (lastVersionData, versionData) {
       if (versionData === currentVersionData) {
-        navVersionMenu.appendChild(createElement('li.nav-version-label', 'Current version'))
+        navVersionMenu.appendChild(createElement('li.nav-version-label', 'Последняя версия'))
       } else if (versionData.prerelease) {
-        if (!lastVersionData) navVersionMenu.appendChild(createElement('li.nav-version-label', 'Prerelease versions'))
+        if (!lastVersionData) navVersionMenu.appendChild(createElement('li.nav-version-label', 'Версия в разработке'))
       } else if (lastVersionData === currentVersionData) {
-        navVersionMenu.appendChild(createElement('li.nav-version-label', 'Previous versions'))
+        navVersionMenu.appendChild(createElement('li.nav-version-label', 'Предыдущие версии'))
       }
       var versionDataset = { version: versionData.version }
       navVersionMenu

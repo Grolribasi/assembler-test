@@ -2,10 +2,11 @@
 #- parent: component-xyx
 #  components: [component-a, component-b]
 groups:
-- root: true
-  components: home
-- title: Demo
-  components: 'component-*'
-- title: Asciidoctor
-  components: ['*', '!asciidoctorj']
+  - root: true
+    components: home
+  - title: Информация о системе Docsvision
+    components: ['ROOT', 'installguide', 'engineer']
+  - title: Документация модулей Docsvision
+    components: ['workerservice', 'mgmtconsole']
 output_file: site-navigation-data.js
+

@@ -2,3 +2,5 @@
 /example/public/
 /node_modules/
 /reports/
+/example/build/
+/example/wwwroot/

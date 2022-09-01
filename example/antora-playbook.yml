@@ -3,31 +3,108 @@ antora:
   - require: ./..
     config_file: ./antora-navigator.yml
 site:
-  title: Antora Navigator Demo
-  start_page: component-b::index.adoc
+  title: Документация Docsvision
+  url: https://help.docsvision.com/
+#  start_page: ROOT:ROOT:description.adoc
+  robots: allow
+urls:
+#  latest_version_segment: latest
+#  latest_version_segment_strategy: redirect:to
+  latest_prerelease_version_segment: dev
+  html_extension_style: indexify
+#  redirect_facility: nginx
 content:
+  branches: 'dev'
+  edit_url: ~
   sources:
-  - url: https://gitlab.com/antora/demo/demo-component-a.git
-    branches: HEAD
-  - url: https://gitlab.com/antora/demo/demo-component-b.git
-    branches: [v1.0, v2.0, main]
-    start_path: docs
-  - url: https://github.com/asciidoctor/asciidoctorj
-    branches: main, v2.4.x
-    start_path: docs
-  - url: https://github.com/asciidoctor/asciidoctor-pdf
-    branches: v2.3.x
-    start_path: docs
-asciidoc:
-  attributes:
-    experimental: ''
-    idprefix: ''
-    idseparator: '-'
-    page-pagination: ''
+#    - url: https://github.com/Docsvision/WebC-Antora.git
+    - url: https://github.com/Docsvision/Worker-Antora.git
+#    - url: https://github.com/Docsvision/Platform-Antora.git
+    - url: https://github.com/Docsvision/WebAC-Antora.git
+    - url: https://github.com/Docsvision/Install-Guide-Antora.git
+#    - url: https://github.com/Docsvision/Designers-And-Directories-Antora.git
+    - url: https://github.com/Docsvision/System-Antora.git
+#    - url: https://github.com/Docsvision/Approval-Designer-Antora.git
+#    - url: https://github.com/Docsvision/Base-Objects-Antora.git
+#    - url: https://github.com/Docsvision/Platform-Upgrade-Antora.git
+    - url: https://github.com/Docsvision/Engineer-Antora.git
+#    - url: https://github.com/Docsvision/Programmer-Antora.git
+#    - url: https://github.com/Docsvision/Windows-Client-Antora.git
+#    - url: https://github.com/Docsvision/Document-Management-Antora.git
+git:
+  credentials:
+    path: ~/.git-credentials
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
-    snapshot: true
+    url: ./build/ui-bundle.zip
   supplemental_files: ./supplemental-ui
+asciidoc:
+  attributes:
+    page-component-order: 'ROOT, installguide, engineer, platform, programmer, baseobjects, approval, desdirs, documentmgmt, winclient, webclient, workerservice, mgmtconsole'
+    sectids: ''
+    sectanchors: ''
+    icons: font
+    page-pagination: ''
+    toclevels: 10
+    experimental: ''
+    source-highlighter: highlightjs
+    idprefix: ''
+    idseparator: '-'
+    toc-title: 'Содержание'
+    figure-caption: 'Рисунок'
+    table-caption: 'Таблица'
+    appendix-caption: 'Приложение'
+    example-caption: 'Пример'
+    kroki-default-format: 'svg'
+    kroki-fetch-diagram: 'true'
+    cns: 'Консоль настройки Docsvision'
+    dv: 'Docsvision'
+    root-cert: 'Корневой сертификат удостоверяющего центра, выпустившего сертификат пользователя.footnote:[Например, корневой сертификат КриптоПро]@'
+    pl: 'Платформа'
+    wincl: 'Windows-клиент'
+    wc: 'Web-клиент'
+    sss: 'Docsvision 5.5 Storage Server'
+    fts: 'Docsvision 5.5 Full-Text indexing Service'
+    wfs: 'Docsvision 5.5 Workflow Server'
+    fss: 'Docsvision 5.5 File Service'
+    wss: 'Docsvision 5.5 Worker Service'
+    wacs-g: 'Docsvision ManagementConsole Administrators'
+    wacss-g: 'Docsvision SettingsService Administrators'
+    wacs: 'Docsvision ManagementConsole Service'
+    wacss: 'Docsvision SettingsService Service'
+    ws: 'фоновых операций'
+    kvr: 'Конструктор Web-разметок'
+    ad: 'Конструктор согласований'
+    dm: 'Управление документами'
+    bo: 'Базовые объекты'
+    wf: 'Управление процессами@'
+    es: 'Elasticsearch'
+    hklm-dv: 'HKEY_LOCAL_MACHINE\SOFTWARE\Docsvision'
+    hklm: 'HKEY_LOCAL_MACHINE'
+    service: 'специальный сервис логики этапа'
+    of-service: 'специального сервиса логики этапа'
+    c-service: 'Специальный сервис логики этапа'
+    sett-serv: 'Сервис настроек'
+    of-sett-serv: 'Сервиса настроек'
+    to-sett-serv: 'Сервису настроек'
+    mc: 'Консоль управления Docsvision'
+    of-mc: 'Консоли управления Docsvision'
+    dv-admins-serv: 'DocsVision Administrators'
+    dv-sec-admins-serv: 'DocsVision Security Administrators'
+    dv-arch-ops-serv: 'DocsVision Archive Operators'
+    dv-sec-admins-dir: 'Администраторы безопасности'
+    dv-arch-ops-dir: 'Операторы архива'
+    dv-admins-dir: 'Администраторы'
+    dv-ad-admins-dir: 'Администраторы КС'
+    dv-sys-wf-dir: 'Системная для WF'
+    dv-power-users: 'DocsVision Power Users'
+    dv-webadmins: 'Docsvision Management Console Administrators'
+    mssql: 'Microsoft SQL@'
+    pgsql: 'PostgreSQL@'
+
+#  extensions:
+#      - asciidoctor-kroki
 output:
-  dir: ./public
+  dir: wwwroot
+runtime:
+  fetch: true
